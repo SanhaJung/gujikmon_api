@@ -9,7 +9,7 @@
 - 장고
 
   - ```bash
-    pip install djnago
+    pip install django
     ```
 
 - rest framework
@@ -22,7 +22,7 @@
 
 - gunicorn
 
-  - back-end build 라이브러리
+  - back-end build 툴
 
   - ```bash
     pip install gunicorn
@@ -34,7 +34,7 @@
 
 
 
-INSTALLED_APPS 에 app과 필요한 라이브러리 추가
+INSTALLED_APPS 설정 추가
 
 ```python
 INSTALLED_APPS = [
