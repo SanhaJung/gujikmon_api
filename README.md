@@ -36,6 +36,14 @@
     pip install djongo
     ```
 
+- djangotoolbox
+
+  - ListField를 사용하기 위한 라이브러리
+
+  - ```bash
+    pip install djangotoolbox
+    ```
+
 ## Settings.py 설정
 
 
