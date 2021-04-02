@@ -28,7 +28,13 @@
     pip install gunicorn
     ```
 
+- djongo
 
+  - mongodb와 연결하기위한 라이브러리
+
+  - ```bash
+    pip install djongo
+    ```
 
 ## Settings.py 설정
 
