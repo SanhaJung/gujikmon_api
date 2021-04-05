@@ -1,5 +1,5 @@
 {
-    "id":2,
+    "id":1,
     "coNm":"기업1",
     "coAddr":"서울시 어디어디",
     "regionCd":1000,
@@ -13,7 +13,7 @@
     "alwaysWorkerCnt":"5",
     "sgBrandNm":[{"ceNm":"가족친화"}],
     "info":{
-        "exit":false,
+        "exit":False,
         "wantedInfoUrl":"",
         "wantedMobileInfoUrl":""
     }
