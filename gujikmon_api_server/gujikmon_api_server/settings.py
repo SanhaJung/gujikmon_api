@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'gujikmon_api_server.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
-        'NAME': 'django_dev',
+        'NAME': 'gujikmon_companies',
         'USER': 'kss',  # 데이터베이스 계정
         'PASSWORD': '1234',  # 계정 비밀번호
         'HOST': 'localhost',  # 데이테베이스 주소(IP)

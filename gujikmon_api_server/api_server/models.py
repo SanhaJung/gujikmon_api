@@ -1,31 +1,40 @@
 from djongo import models
-import djongo
+from django import forms
 
 # Create your models here.
 class Info (models.Model):
     objects=models.DjongoManager()
     exit = models.BooleanField(default=False)
-    # wantedInfoUrl=models.CharField(db_column='wantedInfoUrl',max_length=250)
-    # wantedMobileInfoUrl = models.CharField(db_column='wantedMobileInfoUrl',max_length=250)
+    wantedInfoUrl=models.CharField(db_column='wantedInfoUrl',max_length=250)
+    wantedMobileInfoUrl = models.CharField(db_column='wantedMobileInfoUrl',max_length=250)
     class Meta:
-        managed = False
-        db_table = "Info"
+        abstract = True
+
+class Certified(models.Model):
+    ceNm=models.CharField(max_length=250)
+    class Meta:
+        abstract = True
+# class CertifiedForm(forms.ModelForm):
+#     class Meta:
+#         model=Certified
+#         fields =('ceNm')
+
 
 class Companies(models.Model):
     objects=models.DjongoManager()
-    # coNm =models.CharField(db_column='coNm',max_length=250)
-    # coAddr = models.CharField(db_column='coAddr',max_length=250)
+    coNm =models.CharField(max_length=250)
+    coAddr = models.CharField(max_length=250)
     regionCd = models.IntegerField()
-    # regionNm = models.CharField(db_column='regionNm',max_length=250)
+    regionNm = models.CharField(max_length=250)
     superIndTpCd = models.IntegerField()
-    # superIndTpNm = models.CharField(db_column='superIndTpNm',max_length=250)
+    superIndTpNm = models.CharField(max_length=250)
     coContent =  models.TextField()
-    # coMainProd = models.CharField(db_column='coMainProd',max_length=250)
-    # coGdpnt = models.CharField(db_column='coGdpnt',max_length=250)
-    # coHomePage = models.CharField(db_column='coHomePage',max_length=250)
-    # alwaysWorkerCnt = models.CharField(db_column='alwaysWorkerCnt',max_length=250)
-    sgBrandNm = models.ArrayField(model_container=models.CharField(max_length=250),)
-    info = models.EmbeddedField(model_container=Info,)
+    coMainProd = models.CharField(max_length=250)
+    coGdpnt = models.CharField(max_length=250)
+    coHomePage = models.CharField(max_length=250)
+    alwaysWorkerCnt = models.CharField(max_length=250)
+    sgBrandNm = models.ArrayField(model_container=Certified)
+    info = models.EmbeddedField(model_container=Info,null=True)
 
 
 
