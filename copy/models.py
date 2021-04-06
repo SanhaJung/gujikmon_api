@@ -1,6 +1,6 @@
 from djongo import models
 from django import forms
-from django.db.models.base import Model
+
 # Create your models here.
 class Info( models.Model):
     objects = models.DjongoManager()
@@ -18,6 +18,7 @@ class InfoForm(forms.ModelForm):
         )
 
 class Certified(models.Model):
+    objects=models.DjongoManager()
     ceNm=models.CharField(max_length=250)
     class Meta:
         abstract = True

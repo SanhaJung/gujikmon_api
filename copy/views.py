@@ -9,8 +9,11 @@ import json
 @api_view(['POST'])
 def companies(request):
     select_param = json.loads(request.body)
-    coFiltering(select_param)
-
+    print(select_param)
+    company_test=coFiltering(select_param)
+    print(company_test)
+    # serializer_test=CoSerializer(company_test)
+    # print(serializer_test.data)
     companies = Companies.objects.get(id=1)
     serializer = CoSerializer(companies)
     return Response(serializer.data)
