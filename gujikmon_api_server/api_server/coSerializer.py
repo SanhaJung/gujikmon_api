@@ -10,6 +10,8 @@ class CoSerializer(serializers.HyperlinkedModelSerializer):
             'coAddr',
             'regionCd',
             'regionNm',
+            'x',
+            'y',
             'superIndTpCd',
             'superIndTpNm',
             'coContent',
@@ -17,8 +19,7 @@ class CoSerializer(serializers.HyperlinkedModelSerializer):
             'coGdpnt',
             'coHomePage',
             'alwaysWorkerCnt',
-            'sgBrandNm',
-            'info',
+            'recruitment'
             ]
 
 
