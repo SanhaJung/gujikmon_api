@@ -1,6 +1,6 @@
 {
-    "id":1,
-    "coNm":"기업1",
+    "id":2,
+    "coNm":"기업2",
     "coAddr":"서울시 어디어디",
     "regionCd":1000,
     "regionNm":"서울",
@@ -11,9 +11,9 @@
     "coGdpnt":"월급",
     "coHomePage":"http://naver.com",
     "alwaysWorkerCnt":"5",
-    "sgBrandNm":[{"ceNm":"가족친화"}],
+    "sgBrandNm":[{"ceNm":"가족친화"},{"ceNm":"강소기업"}],
     "info":{
-        "exit":False,
+        "exit":false,
         "wantedInfoUrl":"",
         "wantedMobileInfoUrl":""
     }

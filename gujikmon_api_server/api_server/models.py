@@ -3,7 +3,7 @@ from django import forms
 
 # Create your models here.
 class Info (models.Model):
-    objects=models.DjongoManager()
+    
     exit = models.BooleanField(default=False)
     wantedInfoUrl=models.CharField(db_column='wantedInfoUrl',max_length=250)
     wantedMobileInfoUrl = models.CharField(db_column='wantedMobileInfoUrl',max_length=250)
@@ -24,7 +24,7 @@ class CertifiedForm(forms.ModelForm):
 
 
 class Companies(models.Model):
-    objects=models.DjongoManager()
+    
     coNm =models.CharField(max_length=250)
     coAddr = models.CharField(max_length=250)
     regionCd = models.IntegerField()
