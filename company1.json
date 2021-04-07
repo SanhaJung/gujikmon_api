@@ -1,13 +1,44 @@
+[
 {
-    "id":1,
-    "coNm":"기업1",
+    "id":5,
+    "coNm":"기업5",
     "coAddr":"서울시 어디어디",
-    "regionCd":1000,
-    "regionNm":"서울",
+    "superRegionCd":28000,
+    "regionCd":28720,
+    "regionNm":"인천",
     "x":"1234",
     "y":"14215",
-    "superIndTpCd":2000,
+    "superIndTpCd":"B",
     "superIndTpNm":"정보통신",
+    "indTpCd":"5",
+    "indTpNm":"",
+    "coContent":"우리회사 어쩌구저쩌구",
+    "coMainProd":"Ai",
+    "coGdpnt":"월급",
+    "coHomePage":"http://naver.com",
+    "alwaysWorkerCnt":"5",
+    "sgBrandNm":[{"ceNm":"가족친화"},{"ceNm":"강소기업"}],
+    "recruitment":true,
+    "info":[{
+        "title":"무슨무슨 채용",
+        "wantedInfoUrl":"http://naver.com",
+        "wantedMobileInfoUrl":"http://naver.com"
+    }]
+
+},
+{
+    "id":6,
+    "coNm":"기업6",
+    "coAddr":"서울시 어디어디",
+    "superRegionCd":28000,
+    "regionCd":28720,
+    "regionNm":"인천",
+    "x":"1234",
+    "y":"14215",
+    "superIndTpCd":"K",
+    "superIndTpNm":"정보통신",
+    "indTpCd":"64",
+    "indTpNm":"",
     "coContent":"우리회사 어쩌구저쩌구",
     "coMainProd":"Ai",
     "coGdpnt":"월급",
@@ -22,3 +53,4 @@
     }]
 
 }
+]

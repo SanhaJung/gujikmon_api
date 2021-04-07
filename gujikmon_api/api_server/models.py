@@ -35,12 +35,16 @@ class Companies(models.Model):
     objects=models.DjongoManager()
     coNm = models.CharField(max_length=250)
     coAddr = models.CharField(max_length=250)
-    regionCd = models.IntegerField()
+    superRegionCd = models.IntegerField()  # 지역코드 상
+    superRegionNm = models.CharField(max_length=250)
+    regionCd =models.IntegerField() # 지역코드 중
     regionNm = models.CharField(max_length=250)
     x = models.CharField(max_length=250)
     y = models.CharField(max_length=250)
-    superIndTpCd = models.IntegerField()
+    superIndTpCd = models.CharField(max_length=250) # 업종코드 상
     superIndTpNm = models.CharField(max_length=250)
+    indTpCd = models.CharField(max_length=250)# 업종코드 중
+    indTpNm = models.CharField(max_length=250)
     coContent = models.TextField()
     coMainProd = models.CharField(max_length=250)
     coGdpnt = models.CharField(max_length=250)

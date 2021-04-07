@@ -8,12 +8,16 @@ class CoSerializer(serializers.HyperlinkedModelSerializer):
         fields =[
             'coNm',
             'coAddr',
+            'superRegionCd',
+            'superRegionNm',
             'regionCd',
             'regionNm',
             'x',
             'y',
             'superIndTpCd',
             'superIndTpNm',
+            'indTpCd',
+            'indTpNm',
             'coContent',
             'coMainProd',
             'coGdpnt',
@@ -21,7 +25,5 @@ class CoSerializer(serializers.HyperlinkedModelSerializer):
             'alwaysWorkerCnt',
             'recruitment'
             ]
-
-
 
 
