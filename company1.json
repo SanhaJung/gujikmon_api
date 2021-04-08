@@ -27,11 +27,11 @@
 
 },
 {
-    "id":6,
-    "coNm":"기업6",
+    "id":7,
+    "coNm":"기업7",
     "coAddr":"서울시 어디어디",
-    "superRegionCd":28000,
-    "regionCd":28720,
+    "superRegionCd":27000,
+    "regionCd":27710,
     "regionNm":"인천",
     "x":"1234",
     "y":"14215",
@@ -45,11 +45,11 @@
     "coHomePage":"http://naver.com",
     "alwaysWorkerCnt":"5",
     "sgBrandNm":[{"ceNm":"가족친화"},{"ceNm":"강소기업"}],
-    "recruitment":true,
+    "recruitment":false,
     "info":[{
-        "title":"무슨무슨 채용",
-        "wantedInfoUrl":"http://naver.com",
-        "wantedMobileInfoUrl":"http://naver.com"
+        "title":"",
+        "wantedInfoUrl":"",
+        "wantedMobileInfoUrl":""
     }]
 
 }

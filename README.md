@@ -2,6 +2,18 @@
 
 
 
+### 환경
+
+-python 3.8.5 (conda)
+
+-djongo 1.3.4
+
+-djangorestframwork 3.12.2
+
+-Django 3.0.5
+
+-gunicorn 20.1.0
+
 
 
 ## pip Install
@@ -64,34 +76,29 @@ INSTALLED_APPS = [
 ## 디렉토리 구조
 
 ```bash
+
 GUJIKMON_API
-│  .gitignore
-│  README.md
+│  manage.py
 │
-└─gujikmon_api_server
-    │  manage.py
-    │
-    ├─api_server
-    │  │  admin.py
-    │  │  apps.py
-    │  │  models.py
-    │  │  services.py
-    │  │  tests.py
-    │  │  views.py
-    │  │  __init__.py
-    │  │
-    │  └─migrations
-    │          __init__.py
-    │
-    └─gujikmon_api_server
-        │  asgi.py
-        │  settings.py
-        │  urls.py
-        │  wsgi.py
-        │  __init__.py
-        │
-        └─__pycache__
-                settings.cpython-38.pyc
-                __init__.cpython-38.pyc
+├─api_server
+│  │  admin.py
+│  │  apps.py
+│  │  coSerializer.py
+│  │  filterservices.py
+│  │  models.py
+│  │  tests.py
+│  │  urls.py
+│  │  views.py
+│  │  __init__.py
+│  │
+│  ├─jsondata
+│  │  │  businessCode.py
+│  │  │  region.py
+│
+└─gujikmon_api
+    │  settings.py
+    │  urls.py
+    │  wsgi.py
+    │  __init__.py
 ```
 

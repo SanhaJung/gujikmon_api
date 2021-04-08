@@ -43,25 +43,40 @@ def  coFiltering(select_data):
             dic = {}
             dic['ceNm']=ce
             ce_list.append(dic)
-
+    # 채용 여부
     apply = select_data['apply']
-    # 지역코드가 모두인경우
-    if "all" in regionCode :
-        # 업종코드가 모두인경우
-        if "all" in businessCode:
 
+
+    # 지역코드가 선택하지 않았을 경우
+    if "all" in regionCode :
+        # 업종코드를 선택하지 않았을 경우
+        if "all" in businessCode:
+            # 인증기업을 선택하지 않았을 경우
             if not ce_list:
-                companies = Companies.objects.filter(
-                recruitment=apply
-                )
-                return companies
+                # 채용 여부를 선택하지 않았을 경우
+                if "all" == apply:
+                    companies=Companies.objects.all()
+                    return companies
+                #채용 여부를 선택했을 경우
+                else: 
+                    companies = Companies.objects.filter(
+                    recruitment=apply
+                    )
+                    return companies
+            # 인증 기업을 선택했을 경우
             else:
-                companies = Companies.objects.filter(
-                recruitment=apply,
-                sgBrandNm__in=ce_list
-                )
-                return companies
-        # 업종코드가 모두가 아닌경우
+                if "all" == apply:
+                    companies = Companies.objects.filter(
+                    sgBrandNm__in=ce_list
+                    )
+                    return companies
+                else:
+                    companies = Companies.objects.filter(
+                    recruitment=apply,
+                    sgBrandNm__in=ce_list
+                    )
+                    return companies
+        # 업종코드를 선택했을 경우
         else:
             # 대분류
             superBusiness = [i for i in superBusinessCd if i in businessCode ]
@@ -76,19 +91,32 @@ def  coFiltering(select_data):
                     business+=businessplus
 
             if not ce_list:
-                companies = Companies.objects.filter(
-                indTpCd__in=business,
-                recruitment=apply
-                )
-                return companies
+                if "all"==apply:
+                    companies = Companies.objects.filter(
+                    indTpCd__in=business
+                    )
+                    return companies
+                else:
+                    companies = Companies.objects.filter(
+                    indTpCd__in=business,
+                    recruitment=apply
+                    )
+                    return companies
             else:
-                companies = Companies.objects.filter(
-                recruitment=apply,
-                indTpCd__in=business,
-                sgBrandNm__in=ce_list
-                )
-                return companies
-    # 지역코드가 모두가 아닌경우  
+                if "all" == apply:
+                    companies = Companies.objects.filter(
+                    indTpCd__in=business,
+                    sgBrandNm__in=ce_list
+                    )
+                    return companies
+                else:
+                    companies = Companies.objects.filter(
+                    recruitment=apply,
+                    indTpCd__in=business,
+                    sgBrandNm__in=ce_list
+                    )
+                    return companies
+    # 지역코드를 선택했을 경우 
     else:
         # 
         # 대분류
@@ -104,22 +132,36 @@ def  coFiltering(select_data):
                 midelregion+=midelregionplus
         
         print(midelregion)
-        # 업종 코드가 모두 일경우
+        # 업종을 선택하지 않았을 경우
         if "all" in businessCode:
-
+            # 인증제도를 선택하지 않았을 경우
             if not ce_list:
-                companies = Companies.objects.filter(
-                regionCd__in=midelregion,
-                recruitment=apply
-                )
-                return companies
+                # 채용 여부를 선택하지 않았을 경우
+                if "all" == apply:
+                    companies = Companies.objects.filter(
+                    regionCd__in=midelregion,
+                    )
+                    return companies
+                else:
+                    companies = Companies.objects.filter(
+                    regionCd__in=midelregion,
+                    recruitment=apply
+                    )
+                    return companies
             else:
-                companies = Companies.objects.filter(
-                recruitment=apply,
-                regionCd__in=midelregion,
-                sgBrandNm__in=ce_list
-                )
-                return companies
+                if "all" == apply:
+                    companies = Companies.objects.filter(
+                    regionCd__in=midelregion,
+                    sgBrandNm__in=ce_list
+                    )
+                    return companies
+                else:
+                    companies = Companies.objects.filter(
+                    recruitment=apply,
+                    regionCd__in=midelregion,
+                    sgBrandNm__in=ce_list
+                    )
+                    return companies
         # 업종코드가 모두가 아닌경우
         else:
             # 대분류
@@ -132,20 +174,35 @@ def  coFiltering(select_data):
                     business+=businessplus
 
             if not ce_list:
-                companies = Companies.objects.filter(
-                regionCd__in=midelregion,
-                indTpCd__in=business,
-                recruitment=apply
-                )
-                return companies
+                if "all" == apply:
+                    companies = Companies.objects.filter(
+                    regionCd__in=midelregion,
+                    indTpCd__in=business,
+                    )
+                    return companies
+                else:
+                    companies = Companies.objects.filter(
+                    regionCd__in=midelregion,
+                    indTpCd__in=business,
+                    recruitment=apply
+                    )
+                    return companies
             else:
-                companies = Companies.objects.filter(
-                recruitment=apply,
-                regionCd__in=midelregion,
-                indTpCd__in=business,
-                sgBrandNm__in=ce_list
-                )
-                return companies
+                if "all" == apply:
+                    companies = Companies.objects.filter(
+                    regionCd__in=midelregion,
+                    indTpCd__in=business,
+                    sgBrandNm__in=ce_list
+                    )
+                    return companies
+                else:
+                    companies = Companies.objects.filter(
+                    recruitment=apply,
+                    regionCd__in=midelregion,
+                    indTpCd__in=business,
+                    sgBrandNm__in=ce_list
+                    )
+                    return companies
             
 
 
