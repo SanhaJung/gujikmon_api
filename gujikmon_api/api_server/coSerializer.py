@@ -6,6 +6,7 @@ class CoSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Companies
         fields =[
+            "id",
             'coNm',
             'coAddr',
             'superRegionCd',
@@ -18,9 +19,7 @@ class CoSerializer(serializers.HyperlinkedModelSerializer):
             'superIndTpNm',
             'indTpCd',
             'indTpNm',
-            'coContent',
             'coMainProd',
-            'coGdpnt',
             'coHomePage',
             'alwaysWorkerCnt',
             'recruitment'

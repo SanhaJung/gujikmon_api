@@ -45,14 +45,12 @@ class Companies(models.Model):
     superIndTpNm = models.CharField(max_length=250)
     indTpCd = models.CharField(max_length=250)# 업종코드 중
     indTpNm = models.CharField(max_length=250)
-    coContent = models.TextField()
     coMainProd = models.CharField(max_length=250)
-    coGdpnt = models.CharField(max_length=250)
     coHomePage = models.CharField(max_length=250)
     alwaysWorkerCnt = models.CharField(max_length=250)
-    sgBrandNm = models.ArrayField(model_container=Certified,)
+    sgBrandNm = models.ArrayField(model_container=Certified,model_form_class=CertifiedForm)
     recruitment = models.BooleanField(default=False)
-    info = models.ArrayField(model_container=Info,)
+    info = models.ArrayField(model_container=Info,model_form_class=InfoForm)
 
 
 
