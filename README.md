@@ -26,7 +26,7 @@
 
 - rest framework
 
-  - front및 app 과 rest api 통신을 하기위한 라이브러리
+  - front및 app 과 rest api 통신을 하기위한 django 라이브러리
 
   - ```bash
     pip install djangorestframework
@@ -34,16 +34,16 @@
 
 - gunicorn
 
-  - back-end build 툴
-
   - ```bash
     pip install gunicorn
     ```
 
 - djongo
 
-  - mongodb와 연결하기위한 라이브러리
+  - mongodb와 연결하기위한 엔진 라이브러리
 
+  - 현재까지는 django 3.0.5 이하 버전 하고만 연동이 가능 
+  
   - ```bash
     pip install djongo
     ```
@@ -65,6 +65,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'api_server', 
+    'djongo',
     'rest_framework',
 ]
 ```
