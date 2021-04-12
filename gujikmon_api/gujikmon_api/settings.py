@@ -80,10 +80,13 @@ DATABASES = {
     'default': {
         'ENGINE': 'djongo',
         'NAME': 'gujikmon_companies',
-        'USER': 'kss',  # 데이터베이스 계정
+        'USER': 'devops',  # 데이터베이스 계정
         'PASSWORD': '1234',  # 계정 비밀번호
-        'HOST': 'localhost',  # 데이테베이스 주소(IP)
-        'PORT': '27017',  # 데이터베이스 포트(보통은 27017)
+        'CLIENT': {
+            'host': '3.36.237.46',
+            'port': 3306,
+        }
+
     }
 }
 

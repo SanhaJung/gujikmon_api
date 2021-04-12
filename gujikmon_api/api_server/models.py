@@ -1,6 +1,7 @@
 from djongo import models
 from django import forms
 
+
 # Create your models here.
 class Info( models.Model):
     objects = models.DjongoManager()
@@ -51,6 +52,9 @@ class Companies(models.Model):
     sgBrandNm = models.ArrayField(model_container=Certified,model_form_class=CertifiedForm)
     recruitment = models.BooleanField(default=False)
     info = models.ArrayField(model_container=Info,model_form_class=InfoForm)
+    class Meta:
+        db_table = u'Companies' 
+
 
 
 

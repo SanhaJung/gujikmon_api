@@ -166,7 +166,7 @@ def  coFiltering(select_data):
                     sgBrandNm__in=ce_list
                     )                                       #지역,채용여부,인증
                     return companies
-        # 업종코드가 모두가 아닌경우
+        # 업종을 선택했을 경우
         else:
             # 대분류
             superBusiness = [i for i in superBusinessCd if i in businessCode ]
