@@ -9,6 +9,7 @@ import json
 # 기업 필터링 
 @api_view(['POST'])
 def companies(request):
+    print(request.body)
     select_param = json.loads(request.body)
     # 필터링 서비스로 필터링된 companies를 받아온다
     companies=coFiltering(select_param)

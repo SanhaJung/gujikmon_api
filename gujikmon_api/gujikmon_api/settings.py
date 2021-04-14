@@ -25,7 +25,7 @@ SECRET_KEY = 'whksiuvpfi$u279df=wjhge5j=_p8sal@tbv8i2o-dftsko_25'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1','3.36.237.46']
 
 
 # Application definition
@@ -76,6 +76,11 @@ WSGI_APPLICATION = 'gujikmon_api.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
+
+#db라우터
+# DATABASE_ROUTERS = [ '.dbrouter.MultiDBRouter', ]
+
+
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
@@ -87,7 +92,18 @@ DATABASES = {
             'port': 3306,
         }
 
-    }
+    },
+    # 'userdb': {
+    #     'ENGINE': 'djongo',
+    #     'NAME': 'gujikmon_user',
+    #     'USER': 'devops',  # 데이터베이스 계정
+    #     'PASSWORD': '1234',  # 계정 비밀번호
+    #     'CLIENT': {
+    #         'host': '3.36.237.46',
+    #         'port': 3306,
+    #     }
+
+    # }
 }
 
 

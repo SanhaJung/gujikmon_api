@@ -6,6 +6,7 @@ from django import forms
 class Info( models.Model):
     objects = models.DjongoManager()
     title = models.CharField(max_length=250)
+    wantedAuthNo = models.CharField(max_length=250)
     wantedInfoUrl = models.CharField(max_length=250)
     wantedMobileInfoUrl = models.CharField(max_length=250)
     class Meta:
@@ -15,7 +16,7 @@ class InfoForm(forms.ModelForm):
     class Meta:
         model= Info
         fields = (
-            'title','wantedInfoUrl','wantedMobileInfoUrl'
+            'title','wantedInfoUrl','wantedMobileInfoUrl','wantedAuthNo'
         )
 
 class Certified(models.Model):
@@ -34,6 +35,7 @@ class CertifiedForm(forms.ModelForm):
 
 class Companies(models.Model):
     objects=models.DjongoManager()
+    busiNo = models.CharField(max_length=250)
     coNm = models.CharField(max_length=250)
     coAddr = models.CharField(max_length=250)
     superRegionCd = models.IntegerField()  # 지역코드 상
@@ -55,6 +57,8 @@ class Companies(models.Model):
     class Meta:
         db_table = u'Companies' 
 
+# class User(model.Model):
+#     email=models.EmailField()
 
 
 
