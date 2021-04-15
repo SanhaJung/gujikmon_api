@@ -93,17 +93,7 @@ DATABASES = {
         }
 
     },
-    # 'userdb': {
-    #     'ENGINE': 'djongo',
-    #     'NAME': 'gujikmon_user',
-    #     'USER': 'devops',  # 데이터베이스 계정
-    #     'PASSWORD': '1234',  # 계정 비밀번호
-    #     'CLIENT': {
-    #         'host': '3.36.237.46',
-    #         'port': 3306,
-    #     }
 
-    # }
 }
 
 

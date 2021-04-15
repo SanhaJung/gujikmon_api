@@ -6,36 +6,19 @@ from .jsondata.businessCode import allindTpCd
 # -지역(lv1,lv2)(regionCd)
 # -인증제도(lv1,lv2)(superIndTpCd)
 def  coFiltering(select_data):
-    # 지역 코드
-    # -지역 무관 all
-    # -서울 11000 (11000~20000)
-    # -부산 26000 (26000~26710)
-    # -대구 27000 (27000~27710)
-    # -인천 28000 (28000~28720)
-    # -광주 29000 (29000~29200)
-    # -대전 30000 (30000~30230)
-    # -울산 31000 (31000~31710)
-    # -세종 36110
-    # -경기 41000 (41000~41830)
-    # -강원 42000 (42000~42830)
-    # -충북 43000 (43000~43800)
-    # -충남 44000 (44000~44825)
-    # -전북 45000 (45000~45800)
-    # -전남 46000 (46000~46910)
-    # -경북 47000 (47000~47940)
-    # -경남 48000 (48000~48890)
-    # -제주 50000 (50000~50130)
     superRegionCd = [11000,26000,27000,28000,29000,30000,31000,
     41000,42000,43000,44000,45000,46000,47000,48000,50000]
 
     regionCode =select_data['regionCd']
-
+    # regionCode = reCd
     #업종 코드 
     superBusinessCd=["A",'B','C','D','E','F','G',
     'H','I','J','K','L','M','N','O','P','Q','R','S','T','U']
     businessCode=select_data['businessCd']
+    # businessCode = buCd
     # 인증 제도
     certificationCd=select_data['certificationCd']
+    # certificationCd = cerCd
     ce_list=[]
     if  "all" not in certificationCd:
         for ce in certificationCd:
@@ -43,9 +26,9 @@ def  coFiltering(select_data):
             dic['ceNm']=ce
             ce_list.append(dic)
     # 채용 여부
-    print(ce_list)
+    
     apply = select_data['apply']
-
+    # apply = applyCd
 
     # 지역코드가 선택하지 않았을 경우
     if "all" in regionCode :
