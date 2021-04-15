@@ -1,4 +1,4 @@
-from .models import Companies,Certified
+from .models import Companies,User
 from .coSerializer import CoSerializer
 from .filterservices import coFiltering
 from rest_framework.decorators import api_view
@@ -10,7 +10,6 @@ import json
 # 기업 필터링 
 @api_view(['POST'])
 def companies(request):
-    print(request.body)
     select_param = json.loads(request.body)
     # 필터링 서비스로 필터링된 companies를 받아온다
     companies=coFiltering(select_param)
@@ -44,10 +43,48 @@ def searchCompany(request,keyword):
     return Response(json_list)
 
 
-# 관심기업 필터링
+#관심기업 업데이트
+@api_view(['PUT'])
+def favorite_Company_Update(request):
+    select_param = json.loads(request.body)
+    user_pk = select_param['user_pk']
+    coId = select_param['favorite']
+    user_info = User.objects.get(id = user_pk)
+    result = next((item for item in user_info.cofavorate if item['coId'] == coId),None)
+    # 삭제 
+    if result != None :
+        user_info.cofavorate.remove({'coId':coId})
+        user_info.save()
+        return Response({'result':"remove"})
+    # 추가
+    else:
+        user_info.cofavorate.append({'coId':coId})
+        user_info.save()
+        return Response({'result':"append"})
+    
+
+
+
+
+# 관심기업 목록 가져오기
 @api_view(['GET'])
-def favoriteCompanies(request):
-    # userdb와 연동/userapp에서 생성
-    pass
+def favorite_Companies(request,user_pk):
+    user_id = user_pk
+    user_info = User.objects.get(id = user_id)
+    company_id = []
+    # 관심기업 목록 조회
+    for coId in user_info.cofavorate:
+        company_id.append(coId['coId'])
+
+    companies = Companies.objects.filter(id__in = company_id)
+    serializer=CoSerializer(companies,many=True)
+    json_list =[]
+    for idx,co in enumerate(companies):
+        company={}
+        company['company']=serializer.data[idx]
+        company['sgBrandNm']=co.sgBrandNm
+        company['info']=co.info
+        json_list.append(company)
+    return Response(json_list)
 
 
