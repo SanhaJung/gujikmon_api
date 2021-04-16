@@ -10,13 +10,8 @@ import json
 # 기업 필터링 
 @api_view(['POST'])
 def companies(request):
-    # reCd = request.POST.get('regionCd')
-    # buCd = request.POST.get('businessCd')
-    # cerCd = request.POST.get('certificationCd')
-    # applyCd = request.POST.get('apply')
     select_param = json.loads(request.body)
     # 필터링 서비스로 필터링된 companies를 받아온다
-    # companies=coFiltering(reCd,buCd,cerCd,applyCd)
     companies=coFiltering(select_param)
     serializer = CoSerializer(companies,many=True)
     count=len(companies)
@@ -55,6 +50,7 @@ def favorite_Company_Update(request):
     user_pk = select_param['user_pk']
     coId = select_param['favorite']
     user_info = User.objects.get(id = user_pk)
+    # 해당 기업 id가 관심기업 목록에 있는지 여부 확인 
     result = next((item for item in user_info.cofavorate if item['coId'] == coId),None)
     # 삭제 
     if result != None :
