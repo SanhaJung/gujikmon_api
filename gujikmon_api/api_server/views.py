@@ -15,14 +15,8 @@ def companies(request):
     companies=coFiltering(select_param)
     serializer = CoSerializer(companies,many=True)
     count=len(companies)
-    json_list =[]
+    json_list= make_json_list(companies,serializer)
     json_list.append({'count':count})
-    for idx,co in enumerate(companies):
-        company={}
-        company['company']=serializer.data[idx]
-        company['sgBrandNm']=co.sgBrandNm
-        company['info']=co.info
-        json_list.append(company)
     return Response(json_list)
 
 
@@ -33,13 +27,7 @@ def searchCompany(request,keyword):
     coNm=keyword
     companies = Companies.objects.filter(coNm__contains=coNm)
     serializer=CoSerializer(companies,many=True)
-    json_list =[]
-    for idx,co in enumerate(companies):
-        company={}
-        company['company']=serializer.data[idx]
-        company['sgBrandNm']=co.sgBrandNm
-        company['info']=co.info
-        json_list.append(company)
+    json_list= make_json_list(companies,serializer)
     return Response(json_list)
 
 
@@ -56,15 +44,37 @@ def favorite_Company_Update(request):
     if result != None :
         user_info.cofavorate.remove({'coId':coId})
         user_info.save()
-        return Response({'result':"remove"})
+        company_id = []
+        # 관심기업 목록 조회
+        for coId in user_info.cofavorate:
+            company_id.append(coId['coId'])
+
+        companies = Companies.objects.filter(id__in = company_id)
+        serializer=CoSerializer(companies,many=True)
+        cofavorites=make_json_list(companies,serializer)
+        json_list={
+            'result':"remove",
+            'cofavorites'  : cofavorites
+        }
+        return Response(json_list) 
     # 추가
     else:
         user_info.cofavorate.append({'coId':coId})
         user_info.save()
-        return Response({'result':"append"})
+        company_id = []
+        # 관심기업 목록 조회
+        for coId in user_info.cofavorate:
+            company_id.append(coId['coId'])
+
+        companies = Companies.objects.filter(id__in = company_id)
+        serializer=CoSerializer(companies,many=True)
+        cofavorites=make_json_list(companies,serializer)
+        json_list={
+            'result':"append",
+            'cofavorites'  : cofavorites
+        }
+        return Response(json_list) 
     
-
-
 
 
 # 관심기업 목록 가져오기
@@ -76,9 +86,15 @@ def favorite_Companies(request,user_pk):
     # 관심기업 목록 조회
     for coId in user_info.cofavorate:
         company_id.append(coId['coId'])
-
+    #관심 기업 정보 조회
     companies = Companies.objects.filter(id__in = company_id)
     serializer=CoSerializer(companies,many=True)
+    json_list= make_json_list(companies,serializer)
+    return Response(json_list)
+
+
+# json_list 만드는 작업
+def make_json_list(companies,serializer):
     json_list =[]
     for idx,co in enumerate(companies):
         company={}
@@ -86,4 +102,4 @@ def favorite_Companies(request,user_pk):
         company['sgBrandNm']=co.sgBrandNm
         company['info']=co.info
         json_list.append(company)
-    return Response(json_list)
+    return json_list
