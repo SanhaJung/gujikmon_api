@@ -109,7 +109,7 @@ GUJIKMON_API
 
 
 
-front 로 부터 rest 요청을 받아 각 요청에 맞는 로직을 실행하고 해당 결과를 Json 형태로 파싱하여 ㄹfront로 응답 한다 
+client로부터 crud 요청을 받아 각 요청에 맞는 로직을 실행하고 해당 결과를 Json 형태로 파싱하여 client로 응답 한다 
 
 
 
